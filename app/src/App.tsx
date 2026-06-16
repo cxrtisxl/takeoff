@@ -1,16 +1,26 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import {
+  SiApple,
+  SiGithub,
+  SiGoogle,
+  SiX,
+} from "@icons-pack/react-simple-icons";
+
+import { LoginCard } from "@/components/login-card";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <main className="min-h-svh flex flex-col items-center justify-center gap-6 p-8">
-      <h1 className="text-4xl font-semibold tracking-tight">Vite + React</h1>
-      <Button onClick={() => setCount((c) => c + 1)}>Count is {count}</Button>
-      <p className="text-muted-foreground text-sm">
-        Edit <code className="font-mono">src/App.tsx</code> and save to test HMR
-      </p>
+    <main className="min-h-svh flex items-center justify-center p-6">
+      <LoginCard
+        title="Welcome to Takeoff!"
+        description="Continue with your social account or email"
+        magicLink={true}
+        social={[
+          { label: "Google", redirect: "/auth/google", icon: <SiGoogle /> },
+          { label: "Apple", redirect: "/auth/apple", icon: <SiApple /> },
+          { label: "X", redirect: "/auth/x", icon: <SiX /> },
+          { label: "GitHub", redirect: "/auth/github", icon: <SiGithub /> },
+        ]}
+      />
     </main>
   );
 }
